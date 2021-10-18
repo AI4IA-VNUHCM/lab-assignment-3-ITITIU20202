@@ -13,25 +13,65 @@ Ex:
 #include <math.h>
 
 void Ex3(int arr[], int n){
-	//Your codes here
-	int max=1;
-	int Increase[n], Decrease[n];
-	int IncreasingLength =0, DecreasingLength=0;
-	for(int i=0; i<n; i++) {
-		if (arr[i+1]>arr[i]) {
-			IncreasingLength++;
-		}	else {
-			IncreasingLength=0;
-			if(max < IncreasingLength) {
-					max = IncreasingLength;
-				}
-			}
-		if (max < IncreasingLength) {
-			max = IncreasingLength;
+    int max = 1, len = 1, maxIndex = 0; 
+	int max2 = 1, len2= 1, maxIndex2 =0;
+	int arr2[n];
 
-		}
+
+	for (int i =0; i<n; i++) {
+		arr2[i] = arr[i];
 	}
-	printf("%d", max);
+
+
+    for (int i=1; i<n; i++)
+    {
+        if (arr[i] > arr[i-1])
+            len++;
+        else
+        {
+            if (max < len)   
+            {
+                max = len; 
+                maxIndex = i - max;
+            }
+            len = 1;   
+        }   
+    }
+    if (max < len)
+    {
+        max = len;
+        maxIndex = n - max;
+    }
+	printf("Increasing ");
+	for (int i=maxIndex; i<max+maxIndex; i++) {
+		printf("%d ", arr[i]);
+	}
+
+
+
+for (int i=1; i<n; i++)
+    {
+        if (arr2[i] < arr2[i-1])
+            len2++;
+        else
+        {
+            if (max2 < len2)   
+            {
+                max2 = len2; 
+                maxIndex2 = i - max2;
+            }
+            len2 = 1;   
+        }   
+    }
+    if (max2 < len2)
+    {
+        max2 = len2;
+        maxIndex2 = n - max2;
+    }
+	printf("Decreasing ");
+	for (int i=maxIndex2; i<max2+maxIndex2; i++) {
+		printf("%d ", arr2[i]);
+	}
 }
 
 int main(int argc, char *argv[]) {
