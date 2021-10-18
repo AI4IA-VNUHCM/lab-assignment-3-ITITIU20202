@@ -13,9 +13,19 @@ Ex:
 #include <math.h>
 
 void Ex1(int arr[], int n){
-	//Your codes here
-    
+	int count=0;
+	for (int i=0; i<n/2; i++) {
+			if (arr[i]==arr[n-1-i]) {
+				count++;
+			}
+		}
+		if ( count==n/2) {
+			printf("symmetric");
+		} else {
+			printf("not symmetric");
+		}
 }
+    
 
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
@@ -25,6 +35,8 @@ int main(int argc, char *argv[]) {
 		testcase[i] = atoi(argv[i+1]);
 	}
 	
+		
+
 	Ex1(testcase, argc);
 	
 	return 0;
