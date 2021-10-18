@@ -14,8 +14,27 @@ Ex:
 
 void Ex2(int arr[], int n){
 	//Your codes here
-	
-}
+	for(int i=0; i<n; i++) {
+		for (int j =i+1; j<n;j++) {
+			if (arr[j]%2!=0 && arr[i]%2!=0) {
+				if (arr[j]<arr[i]) {
+					int k1 = arr[i];
+					arr[i]=arr[j];
+					arr[j]=k1;
+					}
+				} else if (arr[j]%2==0 && arr[i]%2==0) {
+					if (arr[j]>arr[i]) {
+						int k2 = arr[i];
+						arr[i]=arr[j];
+						arr[j]=k2;
+					}
+				}
+			}
+		}
+		for (int i =0;i<n;i++) {
+			printf ("%d ",arr[i]);
+		}
+	}
 
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
@@ -24,7 +43,7 @@ int main(int argc, char *argv[]) {
 	for(i=0; i<argc;i++){
 		testcase[i] = atoi(argv[i+1]);
 	}
-	
+		
 	Ex2(testcase, argc);
 	
 	return 0;

@@ -13,8 +13,25 @@ ______________________________________
 #include <math.h>
 
 int Ex4(int arr[], int n){
-	//Your codes here
-	
+	int i=0,ic=1,dc=1;
+    while(i < n-1){
+        if (arr[i]<arr[i+1])
+        dc=0;
+        i++;
+    }
+    i=0;
+    while(i < n-1){
+        if (arr[i]>arr[i+1])
+        ic=0;
+        i++;
+    }
+    if (ic == 1){
+        return 1;
+    }if (dc == 1){
+        return -1;
+    }else{
+        return 0;
+    }
 }
 
 int main(int argc, char *argv[]) {

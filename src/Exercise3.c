@@ -12,9 +12,66 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 
-void Ex3(int in_arr[], int n){
-	//Your codes here
-	
+void Ex3(int arr[], int n){
+    int max = 1, len = 1, maxIndex = 0; 
+	int max2 = 1, len2= 1, maxIndex2 =0;
+	int arr2[n];
+
+
+	for (int i =0; i<n; i++) {
+		arr2[i] = arr[i];
+	}
+
+
+    for (int i=1; i<n; i++)
+    {
+        if (arr[i] > arr[i-1])
+            len++;
+        else
+        {
+            if (max < len)   
+            {
+                max = len; 
+                maxIndex = i - max;
+            }
+            len = 1;   
+        }   
+    }
+    if (max < len)
+    {
+        max = len;
+        maxIndex = n - max;
+    }
+	printf("Increasing ");
+	for (int i=maxIndex; i<max+maxIndex; i++) {
+		printf("%d ", arr[i]);
+	}
+
+
+
+for (int i=1; i<n; i++)
+    {
+        if (arr2[i] < arr2[i-1])
+            len2++;
+        else
+        {
+            if (max2 < len2)   
+            {
+                max2 = len2; 
+                maxIndex2 = i - max2;
+            }
+            len2 = 1;   
+        }   
+    }
+    if (max2 < len2)
+    {
+        max2 = len2;
+        maxIndex2 = n - max2;
+    }
+	printf("Decreasing ");
+	for (int i=maxIndex2; i<max2+maxIndex2; i++) {
+		printf("%d ", arr2[i]);
+	}
 }
 
 int main(int argc, char *argv[]) {
