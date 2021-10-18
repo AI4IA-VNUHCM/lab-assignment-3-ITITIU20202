@@ -12,10 +12,20 @@ ______________________________________
 #include <math.h>
 
 void Ex5(int arr[], int n){
-	//Your codes here
-	
+    int temp[n];
+    int j = 0; 
+    for (int i = 0; i < n ; i++)
+        if (arr[i] >= 0 )
+            temp[j++] = arr[i];
+    if (j == n || j == 0)
+        return;
+    for (int i = 0 ; i < n ; i++)
+        if (arr[i] < 0)
+            temp[j++] = arr[i]; 
+	for (int i =0;i<n;i++) {
+		printf("%d ", temp[i]);
+	}
 }
-
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	argc--;

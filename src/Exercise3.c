@@ -12,9 +12,26 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 
-void Ex3(int in_arr[], int n){
+void Ex3(int arr[], int n){
 	//Your codes here
-	
+	int max=1;
+	int Increase[n], Decrease[n];
+	int IncreasingLength =0, DecreasingLength=0;
+	for(int i=0; i<n; i++) {
+		if (arr[i+1]>arr[i]) {
+			IncreasingLength++;
+		}	else {
+			IncreasingLength=0;
+			if(max < IncreasingLength) {
+					max = IncreasingLength;
+				}
+			}
+		if (max < IncreasingLength) {
+			max = IncreasingLength;
+
+		}
+	}
+	printf("%d", max);
 }
 
 int main(int argc, char *argv[]) {
