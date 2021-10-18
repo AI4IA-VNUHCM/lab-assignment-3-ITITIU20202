@@ -22,7 +22,7 @@ void Ex1(int arr[], int n){
 		if ( count==n/2) {
 			printf("symmetric");
 		} else {
-			printf("Asymmetric");
+			printf("asymmetric");
 		}
 }
     
